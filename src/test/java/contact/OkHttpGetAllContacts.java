@@ -22,7 +22,7 @@ public class OkHttpGetAllContacts {
 
         Request request = new Request.Builder()
                 .url("https://contacts-telran.herokuapp.com/api/contact")
-                .addHeader("Authorization","token")
+                .addHeader("Authorization",token)
                 .build();
 
         Response response = client.newCall(request).execute();
