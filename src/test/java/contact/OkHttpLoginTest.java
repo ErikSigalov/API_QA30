@@ -2,12 +2,14 @@ package contact;
 
 import com.google.gson.Gson;
 import dto.AuthRequestDto;
+import dto.AuthResponseDto;
 import dto.ErrorDto;
 import okhttp3.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 
 public class OkHttpLoginTest {
 
@@ -35,7 +37,7 @@ public class OkHttpLoginTest {
        if (response.isSuccessful()){
            String responseJson = response.body().string();
 
-           AuthRequestDto responseDto = gson.fromJson(responseJson,AuthRequestDto.class);
+           AuthResponseDto responseDto = gson.fromJson(responseJson,AuthResponseDto.class);
            System.out.println(responseDto.getToken());
            System.out.println(response.code());
            Assert.assertTrue(response.isSuccessful());
