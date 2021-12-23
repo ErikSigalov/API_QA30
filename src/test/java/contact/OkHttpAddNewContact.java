@@ -20,26 +20,26 @@ public class OkHttpAddNewContact {
 
     @Test
     public void addNewContact() throws IOException {
-int index = (int) (System.currentTimeMillis()/1000)%3600;
+        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         ContactDto contactDto = ContactDto.builder()
                 .description("friend")
-                .email("erw@mail.ru")
-                .lastName("rone")
-                .name("eria")
+                .email("er"+i+"@mail.ru")
+                .lastName("rone"+i)
+                .name("eria"+i)
                 .address("Haifa")
-                .phone("456789232315")
+                .phone("45678"+i)
                 .build();
 
-        RequestBody requestBody = RequestBody.create(gson.toJson(contactDto),JSON);
+        RequestBody requestBody = RequestBody.create(gson.toJson(contactDto), JSON);
         Request request = new Request.Builder()
                 .url("https://contacts-telran.herokuapp.com/api/contact")
-                .addHeader("Authorization",token)
+                .addHeader("Authorization", token)
                 .post(requestBody)
                 .build();
         Response response = client.newCall(request).execute();
-        ContactDto contactDtoResponse = gson.fromJson(response.body().string(),ContactDto.class);
+        ContactDto contactDtoResponse = gson.fromJson(response.body().string(), ContactDto.class);
         Assert.assertTrue(response.isSuccessful());
-        Assert.assertEquals(contactDtoResponse.getName(),contactDto.getName());
+        Assert.assertEquals(contactDtoResponse.getName(), contactDto.getName());
 
     }
 

@@ -9,5 +9,5 @@ import java.util.List;
 @ToString
 @Builder
 public class GetAllRecordsDto {
-    List<RecordDto> recordDtoList;
+    List<RecordDto> records;
 }

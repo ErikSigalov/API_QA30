@@ -10,7 +10,7 @@ import lombok.*;
 public class GetRecordRequestDto {
 
     int monthFrom;
-    int getMonthTo;
+    int monthTo;
     int yearFrom;
     int yearTo;
 }

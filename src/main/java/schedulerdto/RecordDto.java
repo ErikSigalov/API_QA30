@@ -11,13 +11,13 @@ public class RecordDto {
 
     int breaks;
     String currency;
-    DateDto dateDto;
+    DateDto date;
     int hours;
     int id;
     String timeFrom;
     String timeTo;
     String title;
-    int totalSalary;
+    double totalSalary;
     String type;
     int wage;
 }

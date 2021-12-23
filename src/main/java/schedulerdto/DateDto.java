@@ -8,8 +8,8 @@ import lombok.*;
 @ToString
 @Builder
 public class DateDto {
-    int dayofMonth;
-    String dayofWeek;
+    int dayOfMonth;
+    String dayOfWeek;
     int month;
     int year;
 }

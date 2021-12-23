@@ -2,14 +2,13 @@ package contact;
 
 import com.google.gson.Gson;
 import dto.AuthRequestDto;
-import dto.AuthResponseDto;
 import dto.ErrorDto;
 import okhttp3.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import schedulerdto.AuthResponseDto;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 
 public class OkHttpLoginTest {
 
@@ -19,8 +18,8 @@ public class OkHttpLoginTest {
    public void loginTest() throws IOException {
 
        AuthRequestDto requestDto = AuthRequestDto.builder()
-               .email("noa@gmail.com")
-               .password("Nnoa12345$")
+               .email("erik@gmail.com")
+               .password("Erik12345$")
                .build();
 
        Gson gson = new Gson();
@@ -46,6 +45,7 @@ public class OkHttpLoginTest {
            ErrorDto errorDto = gson.fromJson(response.body().string(),ErrorDto.class);
            System.out.println(errorDto.getCode() + "****" + errorDto.getMessage() + "****" + errorDto.getDetails());
        }
+
 
    }
 }

@@ -21,14 +21,13 @@ public class GetAllRecordsTests {
 
     @Test
     public void getAllRecords(){
-        GetRecordRequestDto requestDto= GetRecordRequestDto.builder()
+        GetRecordRequestDto requestDto = GetRecordRequestDto.builder()
                 .monthFrom(5)
-                .getMonthTo(12)
+                .monthTo(12)
                 .yearFrom(2021)
-                .yearTo(2021)
-                .build();
+                .yearTo(2021).build();
 
-        GetAllRecordsDto recordsDto = given()
+        GetAllRecordsDto recordsDto =  given()
                 .header("Authorization",token)
                 .contentType(ContentType.JSON)
                 .body(requestDto)
@@ -36,11 +35,13 @@ public class GetAllRecordsTests {
                 .post("records")
                 .then()
                 .assertThat().statusCode(200)
-                .extract().response().as(GetAllRecordsDto.class);
+                .extract().as(GetAllRecordsDto.class);
 
-        for (RecordDto record: recordsDto.getRecordDtoList()){
+        System.out.println(recordsDto.getRecords().size());
+
+        for (RecordDto record:recordsDto.getRecords()){
             System.out.println(record.getId());
-            System.out.println("************");
+            System.out.println("*********");
         }
     }
 }
